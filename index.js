@@ -19,7 +19,7 @@ app.use(express.json());
 
 //connect to our mongodb atlas database
 mongoose
-  .connect(process.env.MONGO_DB_URL)
+  .connect(process.env.MONGODB_URI)
 
 //load our rest api routes
 app.use("/api/students", studentRoute);
