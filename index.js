@@ -13,14 +13,7 @@ const corsOptions ={
 
 app.use(cors(corsOptions));
 
-app.use((req, res, next) => {
-  const allowedOrigins = ['https://pmart-admin.netlify.app/','https://padjadjaran-mart.netlify.app','http://localhost:3000'];
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-  }
-  return next();
-});
+
 //setup cors for our project
 app.use(cors());
 
