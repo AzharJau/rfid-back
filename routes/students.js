@@ -42,7 +42,11 @@ router.post("/", upload.single("file"), async (req, res) => {
   const newStudent = new Student(req.body);
   try {
     // save the generated filename in our MongoDB Atlas database
-    newStudent.imagePic = req.file.path;
+    if (typeof req.file === "undefined") {
+      newStudent.imagePic = "./images/defaultPic.png";
+    } else {
+      newStudent.imagePic = req.file.path;
+    }
     const savedStudent = await newStudent.save();
     res.status(200).json(savedStudent);
   } catch (error) {
