@@ -40,6 +40,6 @@ mongoose
 app.use("/api/students", studentRoute);
 
 //start the server
-app.listen("5000", () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("RFID backend API server is running.");
 });
