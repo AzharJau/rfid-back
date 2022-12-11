@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-const StudentSchema = new mongoose.Schema(
+const MemberSchema = new mongoose.Schema(
   {
-    studentId: {
+    memberId: {
       type: String,
       required: true,
       unique: true,
@@ -26,5 +26,5 @@ const StudentSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-StudentSchema.index({ "expireAt": 1 }, { expireAfterSeconds: 0 });
-module.exports = mongoose.model("Student", StudentSchema);
+MemberSchema.index({ "expireAt": 1 }, { expireAfterSeconds: 0 });
+module.exports = mongoose.model("Member", MemberSchema);

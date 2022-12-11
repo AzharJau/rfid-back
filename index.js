@@ -4,7 +4,7 @@ const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const studentRoute = require("./routes/students");
+const memberRoute = require("./routes/members");
 const corsOptions ={
     origin:"*", 
     credentials:true,            //access-control-allow-credentials:true
@@ -30,7 +30,7 @@ mongoose
   .connect(process.env.MONGODB_URI)
 
 //load our rest api routes
-app.use("/api/students", studentRoute);
+app.use("/api/members", memberRoute);
 
 //start the server
 app.listen(process.env.PORT || 5000, () => {
